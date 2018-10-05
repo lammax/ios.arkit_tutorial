@@ -18,6 +18,7 @@ class DrawViewController: UIViewController {
     let pointer: SCNNode = SCNNode(geometry: SCNSphere(radius: 0.01))
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
@@ -25,12 +26,10 @@ class DrawViewController: UIViewController {
         self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         self.sceneView.showsStatistics = true
         self.sceneView.session.run(configuration)
-        self.sceneView.autoenablesDefaultLighting = true
         self.sceneView.delegate = self
         
         self.pointer.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
         self.sceneView.scene.rootNode.addChildNode(self.pointer)
-
 
     }
 

@@ -15,6 +15,7 @@
 		047E613A21668709009B53AC /* 1_NodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613921668709009B53AC /* 1_NodeViewController.swift */; };
 		047E613D21678091009B53AC /* Int+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613C21678091009B53AC /* Int+additions.swift */; };
 		047E613F216783CD009B53AC /* 2_DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613E216783CD009B53AC /* 2_DrawViewController.swift */; };
+		047E61412167BEE1009B53AC /* 3_TextureSurfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		047E613921668709009B53AC /* 1_NodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_NodeViewController.swift; sourceTree = "<group>"; };
 		047E613C21678091009B53AC /* Int+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+additions.swift"; sourceTree = "<group>"; };
 		047E613E216783CD009B53AC /* 2_DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_DrawViewController.swift; sourceTree = "<group>"; };
+		047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3_TextureSurfaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			children = (
 				047E613921668709009B53AC /* 1_NodeViewController.swift */,
 				047E613E216783CD009B53AC /* 2_DrawViewController.swift */,
+				047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */,
 			);
 			path = Lessons;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				047E6129216684E4009B53AC /* MainViewController.swift in Sources */,
 				047E613F216783CD009B53AC /* 2_DrawViewController.swift in Sources */,
 				047E6127216684E4009B53AC /* AppDelegate.swift in Sources */,
+				047E61412167BEE1009B53AC /* 3_TextureSurfaceViewController.swift in Sources */,
 				047E613D21678091009B53AC /* Int+additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
