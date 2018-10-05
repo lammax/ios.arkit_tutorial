@@ -41,17 +41,65 @@ class NodeViewController: UIViewController {
         restartSession()
     }
     
-    @IBAction func add(_ sender: UIButton) {
+    @IBAction func add(_ sender:  UIButton) {
         let node = SCNNode()
-        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+        addBezierPath(to: node)
         node.geometry?.firstMaterial?.specular.contents = UIColor.white // white light
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
         let x = randomNumbers(firstNum: -0.3, secondNum: 0.3)
         let y = randomNumbers(firstNum: -0.3, secondNum: 0.3)
         let z = randomNumbers(firstNum: -0.3, secondNum: 0.3)
-        node.position = SCNVector3(x, y, z)
+        node.position = SCNVector3(x, -0.1, -0.4)
         self.sceneView.scene.rootNode.addChildNode(node)
         
+    }
+    
+    private func addBezierPath(to node: SCNNode) {
+        let path = UIBezierPath()
+        path.move(to: CGPoint.zero)
+        path.addLine(to: CGPoint(x: 0.0, y: 0.2))
+        path.addLine(to: CGPoint(x: 0.1, y: 0.3))
+        path.addLine(to: CGPoint(x: 0.2, y: 0.2))
+        path.addLine(to: CGPoint(x: 0.2, y: 0.0))
+        path.addLine(to: CGPoint(x: 0.0, y: 0.0))
+        let shape = SCNShape(path: path, extrusionDepth: 0.2)
+        node.geometry = shape
+    }
+    
+    private func addPyramid(to node: SCNNode) {
+        node.geometry = SCNPyramid(width: 0.2, height: 0.3, length: 0.2)
+    }
+    
+    private func addPlane(to node: SCNNode) {
+        node.geometry = SCNPlane(width: 0.3, height: 0.3)
+    }
+    
+    private func addCapsule(to node: SCNNode) {
+        node.geometry = SCNCapsule(capRadius:  0.1, height: 0.3)
+    }
+    
+    private func addTorus(to node: SCNNode) {
+        node.geometry = SCNTorus(ringRadius: 0.3, pipeRadius: 0.1)
+    }
+    
+    private func addSphere(to node: SCNNode) {
+        node.geometry = SCNSphere(radius: 0.3)
+    }
+    
+    private func addTube(to node: SCNNode) {
+        node.geometry = SCNTube(innerRadius: 0.2, outerRadius: 0.3, height: 0.5)
+    }
+    
+    private func addCylinder(to node: SCNNode) {
+        node.geometry = SCNCylinder(radius: 0.1, height: 0.3)
+    }
+    
+    private func addCone(to node: SCNNode) {
+        node.geometry = SCNCone(topRadius: 0.0, bottomRadius: 0.3, height: 0.5)
+    }
+    
+    private func addBox(to node: SCNNode) {
+        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
     }
     
     func restartSession() {
