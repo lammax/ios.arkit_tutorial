@@ -14,6 +14,7 @@
 		047E6131216684E5009B53AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047E612F216684E5009B53AC /* LaunchScreen.storyboard */; };
 		047E613A21668709009B53AC /* 1_NodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613921668709009B53AC /* 1_NodeViewController.swift */; };
 		047E613D21678091009B53AC /* Int+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613C21678091009B53AC /* Int+additions.swift */; };
+		047E613F216783CD009B53AC /* 2_DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613E216783CD009B53AC /* 2_DrawViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		047E6132216684E5009B53AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		047E613921668709009B53AC /* 1_NodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_NodeViewController.swift; sourceTree = "<group>"; };
 		047E613C21678091009B53AC /* Int+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+additions.swift"; sourceTree = "<group>"; };
+		047E613E216783CD009B53AC /* 2_DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_DrawViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				047E613921668709009B53AC /* 1_NodeViewController.swift */,
+				047E613E216783CD009B53AC /* 2_DrawViewController.swift */,
 			);
 			path = Lessons;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				047E613A21668709009B53AC /* 1_NodeViewController.swift in Sources */,
 				047E6129216684E4009B53AC /* MainViewController.swift in Sources */,
+				047E613F216783CD009B53AC /* 2_DrawViewController.swift in Sources */,
 				047E6127216684E4009B53AC /* AppDelegate.swift in Sources */,
 				047E613D21678091009B53AC /* Int+additions.swift in Sources */,
 			);
