@@ -46,7 +46,7 @@ class NodeViewController: UIViewController {
         let x = randomNumbers(firstNum: -0.3, secondNum: 0.3)
         let y = randomNumbers(firstNum: -0.3, secondNum: 0.3)
         let z = randomNumbers(firstNum: -0.3, secondNum: 0.3)
-        node.position = SCNVector3(x, -0.1, -0.4)
+        node.position = SCNVector3(x, y, z)
         self.sceneView.scene.rootNode.addChildNode(node)
         
         node.addChildNode(spehereNode)

@@ -12,7 +12,10 @@ import ARKit
 class DrawViewController: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var drawButton: UIButton!
+    
     let configuration = ARWorldTrackingConfiguration()
+    let pointer: SCNNode = SCNNode(geometry: SCNSphere(radius: 0.01))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +27,10 @@ class DrawViewController: UIViewController {
         self.sceneView.session.run(configuration)
         self.sceneView.autoenablesDefaultLighting = true
         self.sceneView.delegate = self
+        
+        self.pointer.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+        self.sceneView.scene.rootNode.addChildNode(self.pointer)
+
 
     }
 
@@ -39,10 +46,21 @@ extension DrawViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
         guard let pointOfView = self.sceneView.pointOfView else { return }
         let transform = pointOfView.transform
-        let orientation = SCNVector3(-transform.m31, -transform.m32, transform.m33)
+        let orientation = SCNVector3(-transform.m31, -transform.m32, -transform.m33)
         let location = SCNVector3(transform.m41, transform.m42, transform.m43)
         let frontOfCamera = orientation + location
-        print( orientation.x, orientation.y, orientation.z )
+        
+        DispatchQueue.main.async {
+            if self.drawButton.isHighlighted {
+                let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
+                sphereNode.position = frontOfCamera
+                sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+                self.sceneView.scene.rootNode.addChildNode(sphereNode)
+            } else {
+                self.pointer.position = frontOfCamera
+            }
+        }
+        
     }
     
 }
