@@ -19,6 +19,7 @@ class NodeViewController: UIViewController {
         super.viewDidLoad()
         self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
         self.sceneView.session.run(configuration)
+        self.sceneView.autoenablesDefaultLighting = true
         // Do any additional setup after loading the view.
     }
     
@@ -43,8 +44,12 @@ class NodeViewController: UIViewController {
     @IBAction func add(_ sender: UIButton) {
         let node = SCNNode()
         node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+        node.geometry?.firstMaterial?.specular.contents = UIColor.white // white light
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.orange
-        node.position = SCNVector3(0.1, 0.1, 0.1)
+        let x = randomNumbers(firstNum: -0.3, secondNum: 0.3)
+        let y = randomNumbers(firstNum: -0.3, secondNum: 0.3)
+        let z = randomNumbers(firstNum: -0.3, secondNum: 0.3)
+        node.position = SCNVector3(x, y, z)
         self.sceneView.scene.rootNode.addChildNode(node)
         
     }
@@ -58,6 +63,13 @@ class NodeViewController: UIViewController {
             configuration,
             options: [.resetTracking, .removeExistingAnchors]
         )
+    }
+    
+    func randomNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
+        return CGFloat(arc4random())
+            / CGFloat(UINT32_MAX)
+            * abs(firstNum - secondNum)
+            + min(firstNum, secondNum)
     }
     
 }
