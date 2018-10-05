@@ -42,6 +42,13 @@ class NodeViewController: UIViewController {
     }
     
     @IBAction func add(_ sender:  UIButton) {
+        let spehereNode = SCNNode()
+        addSphere(to: spehereNode)
+        spehereNode.geometry?.firstMaterial?.specular.contents = UIColor.white // white light
+        spehereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.green
+        spehereNode.position = SCNVector3(0.0, 0.5, 0.0)
+
+        
         let node = SCNNode()
         addBezierPath(to: node)
         node.geometry?.firstMaterial?.specular.contents = UIColor.white // white light
@@ -52,6 +59,7 @@ class NodeViewController: UIViewController {
         node.position = SCNVector3(x, -0.1, -0.4)
         self.sceneView.scene.rootNode.addChildNode(node)
         
+        node.addChildNode(spehereNode)
     }
     
     private func addBezierPath(to node: SCNNode) {
@@ -83,7 +91,7 @@ class NodeViewController: UIViewController {
     }
     
     private func addSphere(to node: SCNNode) {
-        node.geometry = SCNSphere(radius: 0.3)
+        node.geometry = SCNSphere(radius: 0.1)
     }
     
     private func addTube(to node: SCNNode) {
