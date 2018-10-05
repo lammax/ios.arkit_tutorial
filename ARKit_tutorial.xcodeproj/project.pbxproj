@@ -13,6 +13,7 @@
 		047E612E216684E5009B53AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047E612D216684E5009B53AC /* Assets.xcassets */; };
 		047E6131216684E5009B53AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047E612F216684E5009B53AC /* LaunchScreen.storyboard */; };
 		047E613A21668709009B53AC /* 1_NodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613921668709009B53AC /* 1_NodeViewController.swift */; };
+		047E613D21678091009B53AC /* Int+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613C21678091009B53AC /* Int+additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		047E6130216684E5009B53AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047E6132216684E5009B53AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		047E613921668709009B53AC /* 1_NodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_NodeViewController.swift; sourceTree = "<group>"; };
+		047E613C21678091009B53AC /* Int+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		047E611A216684E4009B53AC = {
 			isa = PBXGroup;
 			children = (
+				047E613B21678076009B53AC /* Extensions */,
 				047E6138216686A6009B53AC /* Lessons */,
 				047E6126216684E4009B53AC /* AppDelegate.swift */,
 				047E6128216684E4009B53AC /* MainViewController.swift */,
@@ -65,6 +68,14 @@
 				047E613921668709009B53AC /* 1_NodeViewController.swift */,
 			);
 			path = Lessons;
+			sourceTree = "<group>";
+		};
+		047E613B21678076009B53AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				047E613C21678091009B53AC /* Int+additions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 				047E613A21668709009B53AC /* 1_NodeViewController.swift in Sources */,
 				047E6129216684E4009B53AC /* MainViewController.swift in Sources */,
 				047E6127216684E4009B53AC /* AppDelegate.swift in Sources */,
+				047E613D21678091009B53AC /* Int+additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

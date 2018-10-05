@@ -60,6 +60,8 @@ class NodeViewController: UIViewController {
         self.sceneView.scene.rootNode.addChildNode(node)
         
         node.addChildNode(spehereNode)
+        
+        node.eulerAngles = SCNVector3(90.degrees2radians, 0, 0)
     }
     
     private func addBezierPath(to node: SCNNode) {
