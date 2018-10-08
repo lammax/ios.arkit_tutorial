@@ -33,11 +33,34 @@ class TextureSurfaceViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let sunNode = makeSunNode()
-        sunNode.addChildNode(makeEarthNode())
-        sunNode.addChildNode(makeVenusNode())
+        let baseEarthNode = makeBaseNode()
+        addActionForever(
+            node: baseEarthNode,
+            action: SCNAction.rotateBy(x: 0, y: CGFloat(360.degrees2radians), z: 0, duration: 24)
+        )
+        baseEarthNode.addChildNode(makeEarthNode())
 
-        self.sceneView.scene.rootNode.addChildNode(sunNode)
+        let baseVenusNode = makeBaseNode()
+        addActionForever(
+            node: baseVenusNode,
+            action: SCNAction.rotateBy(x: 0, y: CGFloat(360.degrees2radians), z: 0, duration: 14)
+        )
+        baseVenusNode.addChildNode(makeVenusNode())
+        
+
+        self.sceneView.scene.rootNode.addChildNode(baseEarthNode)
+        self.sceneView.scene.rootNode.addChildNode(baseVenusNode)
+        self.sceneView.scene.rootNode.addChildNode(makeSunNode())
+
+    }
+    
+    private func addActionForever(node: SCNNode, action: SCNAction) {
+        let forever = SCNAction.repeatForever(action)
+        node.runAction(forever)
+    }
+    
+    private func makeBaseNode() -> SCNNode {
+        return makePlanet(position: SCNVector3(0, 0, -1))
     }
     
     private func makeSunNode() -> SCNNode {
@@ -69,20 +92,28 @@ class TextureSurfaceViewController: UIViewController {
         return earthNode
     }
     
-    func makePlanet(geometry: SCNGeometry, diffuse: String, specular: String? = nil, emission: String? = nil, normal: String? = nil, position: SCNVector3) -> SCNNode {
+    func makePlanet(geometry: SCNGeometry? = nil, diffuse: String? = nil, specular: String? = nil, emission: String? = nil, normal: String? = nil, position: SCNVector3) -> SCNNode {
        
-        let planetNode = SCNNode(geometry: geometry)
+        let planetNode = SCNNode()
         
-        planetNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: diffuse)
-        if let spec = specular {
-            planetNode.geometry?.firstMaterial?.specular.contents = UIImage(named: spec)
+        if let geom = geometry {
+            
+            planetNode.geometry = geom
+        
+            if let diff = diffuse {
+                planetNode.geometry?.firstMaterial?.diffuse.contents = UIImage(named: diff)
+            }
+            if let spec = specular {
+                planetNode.geometry?.firstMaterial?.specular.contents = UIImage(named: spec)
+            }
+            if let em = emission {
+                planetNode.geometry?.firstMaterial?.emission.contents = UIImage(named: em)
+            }
+            if let norm = normal {
+                planetNode.geometry?.firstMaterial?.normal.contents = UIImage(named: norm)
+            }
         }
-        if let em = emission {
-            planetNode.geometry?.firstMaterial?.emission.contents = UIImage(named: em)
-        }
-        if let norm = normal {
-            planetNode.geometry?.firstMaterial?.normal.contents = UIImage(named: norm)
-        }
+        
         planetNode.position = position
         
         return planetNode
