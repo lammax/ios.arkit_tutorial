@@ -33,34 +33,36 @@ class TextureSurfaceViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let baseEarthNode = makeBaseNode()
-        addActionForever(
-            node: baseEarthNode,
-            action: SCNAction.rotateBy(x: 0, y: CGFloat(360.degrees2radians), z: 0, duration: 24)
-        )
-        baseEarthNode.addChildNode(makeEarthNode())
+        let earthNode = makeEarthNode()
+        earthNode.addChildNode(makeRotatingNode(node: makeEarthMoonNode(), duration: 3, baseposition: SCNVector3(0, 0, 0)))
 
-        let baseVenusNode = makeBaseNode()
-        addActionForever(
-            node: baseVenusNode,
-            action: SCNAction.rotateBy(x: 0, y: CGFloat(360.degrees2radians), z: 0, duration: 14)
-        )
-        baseVenusNode.addChildNode(makeVenusNode())
-        
+        let venusNode = makeVenusNode()
+        venusNode.addChildNode(makeRotatingNode(node: makeVenusMoonNode(), duration: 5, baseposition: SCNVector3(0, 0, 0)))
 
-        self.sceneView.scene.rootNode.addChildNode(baseEarthNode)
-        self.sceneView.scene.rootNode.addChildNode(baseVenusNode)
+        self.sceneView.scene.rootNode.addChildNode(makeRotatingNode(node: earthNode, duration: 24, baseposition: SCNVector3(0, 0, -1)))
+        self.sceneView.scene.rootNode.addChildNode(makeRotatingNode(node: venusNode, duration: 14, baseposition: SCNVector3(0, 0, -1)))
         self.sceneView.scene.rootNode.addChildNode(makeSunNode())
 
     }
     
+    private func makeRotatingNode(node: SCNNode, duration: Double, baseposition: SCNVector3) -> SCNNode {
+        let baseNode = makeBaseNode(baseposition: baseposition)
+        addActionForever(
+            node: baseNode,
+            action: SCNAction.rotateBy(x: 0, y: CGFloat(360.degrees2radians), z: 0, duration: duration)
+        )
+        baseNode.addChildNode(node)
+        
+        return baseNode
+    }
+
     private func addActionForever(node: SCNNode, action: SCNAction) {
         let forever = SCNAction.repeatForever(action)
         node.runAction(forever)
     }
     
-    private func makeBaseNode() -> SCNNode {
-        return makePlanet(position: SCNVector3(0, 0, -1))
+    private func makeBaseNode(baseposition: SCNVector3) -> SCNNode {
+        return makePlanet(position: baseposition)
     }
     
     private func makeSunNode() -> SCNNode {
@@ -90,6 +92,26 @@ class TextureSurfaceViewController: UIViewController {
         earthNode.runAction(forever)
 
         return earthNode
+    }
+    
+    private func makeEarthMoonNode() -> SCNNode {
+        let moonNode = makePlanet(geometry: SCNSphere(radius: 0.05), diffuse: "Moon_diffuse", position: SCNVector3(0, 0, -0.3))
+        
+        let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(360.degrees2radians), z: 0, duration: 36)
+        let forever = SCNAction.repeatForever(rotation)
+        moonNode.runAction(forever)
+        
+        return moonNode
+    }
+    
+    private func makeVenusMoonNode() -> SCNNode {
+        let moonNode = makePlanet(geometry: SCNSphere(radius: 0.05), diffuse: "Moon_diffuse", position: SCNVector3(0, 0, -0.2))
+        
+        let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(360.degrees2radians), z: 0, duration: 12)
+        let forever = SCNAction.repeatForever(rotation)
+        moonNode.runAction(forever)
+        
+        return moonNode
     }
     
     func makePlanet(geometry: SCNGeometry? = nil, diffuse: String? = nil, specular: String? = nil, emission: String? = nil, normal: String? = nil, position: SCNVector3) -> SCNNode {
