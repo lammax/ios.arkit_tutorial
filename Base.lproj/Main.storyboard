@@ -118,12 +118,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uY0-7U-l6J">
-                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uY0-7U-l6J">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-Q2-yp8">
+                                <rect key="frame" x="20" y="547" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3Vf-H0-ubp"/>
+                                    <constraint firstAttribute="width" constant="100" id="YAu-dJ-4wW"/>
+                                </constraints>
+                                <state key="normal" image="Play" backgroundImage="Play"/>
+                                <connections>
+                                    <action selector="clickPlayButton:" destination="4Jj-cy-Gic" eventType="touchUpInside" id="cLW-pL-Itu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmW-Ss-wT1">
+                                <rect key="frame" x="255" y="547" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="BfQ-Ty-sVV"/>
+                                    <constraint firstAttribute="width" constant="100" id="oBd-5D-s92"/>
+                                </constraints>
+                                <state key="normal" image="Reset" backgroundImage="Reset"/>
+                                <connections>
+                                    <action selector="clickResetButton:" destination="4Jj-cy-Gic" eventType="touchUpInside" id="L9d-kW-8NE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="uY0-7U-l6J" secondAttribute="bottom" id="6FS-kC-gdS"/>
+                            <constraint firstAttribute="trailing" secondItem="uY0-7U-l6J" secondAttribute="trailing" id="FOo-yO-Xlz"/>
+                            <constraint firstItem="uY0-7U-l6J" firstAttribute="top" secondItem="QUo-eF-fdE" secondAttribute="top" constant="64" id="GHv-he-Nf8"/>
+                            <constraint firstItem="VnP-f1-tAa" firstAttribute="bottom" secondItem="B7r-Q2-yp8" secondAttribute="bottom" constant="20" id="N0V-2s-lFQ"/>
+                            <constraint firstItem="VnP-f1-tAa" firstAttribute="bottom" secondItem="lmW-Ss-wT1" secondAttribute="bottom" constant="20" id="Zow-ch-axG"/>
+                            <constraint firstItem="uY0-7U-l6J" firstAttribute="leading" secondItem="QUo-eF-fdE" secondAttribute="leading" id="i7t-OS-yEd"/>
+                            <constraint firstItem="B7r-Q2-yp8" firstAttribute="leading" secondItem="VnP-f1-tAa" secondAttribute="leading" constant="20" id="mHV-Xy-wsm"/>
+                            <constraint firstItem="VnP-f1-tAa" firstAttribute="trailing" secondItem="lmW-Ss-wT1" secondAttribute="trailing" constant="20" id="o1P-xR-CgP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VnP-f1-tAa"/>
                     </view>
                     <connections>
@@ -254,4 +285,8 @@
             <point key="canvasLocation" x="186" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Play" width="204" height="204"/>
+        <image name="Reset" width="102" height="102"/>
+    </resources>
 </document>
