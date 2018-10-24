@@ -43,8 +43,19 @@ class ModelsHitTestingViewController: UIViewController {
         view.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    @objc func handleTap() {
-        print("Scene view tapped")
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+
+        let sceneViewTappedOn = sender.view as! SCNView
+        
+        let touchCoordinates = sender.location(in: sceneViewTappedOn)
+        
+        let hitTest = sceneViewTappedOn.hitTest(touchCoordinates)
+        
+        if hitTest.isEmpty {
+            print("You didn't touch anything at all")
+        } else {
+            print("You touched something")
+        }
     }
     
     func addNode() {
