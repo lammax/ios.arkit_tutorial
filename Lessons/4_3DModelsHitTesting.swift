@@ -12,6 +12,7 @@ import ARKit
 class ModelsHitTestingViewController: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var playButton: UIButton!
     
     let configuration = ARWorldTrackingConfiguration()
     
@@ -33,6 +34,7 @@ class ModelsHitTestingViewController: UIViewController {
     
     @IBAction func clickPlayButton(_ sender: UIButton) {
         self.addNode()
+        self.playButton.isEnabled = false
     }
     
     @IBAction func clickResetButton(_ sender: UIButton) {
@@ -55,7 +57,9 @@ class ModelsHitTestingViewController: UIViewController {
             print("You didn't touch anything at all")
         } else {
             let node = hitTest.first!.node
-            self.animateNode(node: node)
+            if node.animationKeys.isEmpty {
+                self.animateNode(node: node)
+            }
         }
     }
     
@@ -63,19 +67,29 @@ class ModelsHitTestingViewController: UIViewController {
         let jellyFishScene = SCNScene(named: "art.scnassets/Jellyfish.scn")!
         let jellyFishNode = jellyFishScene.rootNode.childNode(withName: "Jellyfish", recursively: false)
         if let node = jellyFishNode {
-            node.position = SCNVector3(0, 0, -1)
+            node.position = SCNVector3(randomNumber(-1, 1) , randomNumber(-1, 1), randomNumber(-1, 1))
             self.sceneView.scene.rootNode.addChildNode(node)
         }
     }
     
     func animateNode(node: SCNNode) {
         let spin = CABasicAnimation(keyPath: "position")
-        spin.fromValue = node.presentation.position
-        spin.toValue = SCNVector3(0, 0, node.presentation.position.z - 1)
+        let position = node.presentation.position
+        spin.fromValue = position
+        spin.toValue = SCNVector3(position.x - 0.1, position.y - 0.1, position.z - 0.1)
+        spin.autoreverses = true
+        spin.duration = 0.07
+        spin.repeatCount = 5
         node.addAnimation(spin, forKey: "position")
         
     }
     
+    func randomNumber(_ firstNum: CGFloat, _ secondNum: CGFloat) -> CGFloat {
+        return CGFloat(arc4random())
+            / CGFloat(UINT32_MAX)
+            * abs(firstNum - secondNum)
+            + min(firstNum, secondNum)
+    }
     
 }
 

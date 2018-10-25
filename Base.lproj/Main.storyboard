@@ -158,6 +158,7 @@
                         <viewLayoutGuide key="safeArea" id="VnP-f1-tAa"/>
                     </view>
                     <connections>
+                        <outlet property="playButton" destination="B7r-Q2-yp8" id="Yb1-14-uCy"/>
                         <outlet property="sceneView" destination="uY0-7U-l6J" id="AU5-vw-RlM"/>
                     </connections>
                 </viewController>
