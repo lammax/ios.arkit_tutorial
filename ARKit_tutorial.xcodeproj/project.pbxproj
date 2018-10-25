@@ -17,6 +17,8 @@
 		047E613F216783CD009B53AC /* 2_DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613E216783CD009B53AC /* 2_DrawViewController.swift */; };
 		047E61412167BEE1009B53AC /* 3_TextureSurfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */; };
 		04959FC6217A029700EC3930 /* 4_3DModelsHitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04959FC5217A029700EC3930 /* 4_3DModelsHitTesting.swift */; };
+		04F140122181E73700B4E57E /* Jellyfish.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F140112181E73700B4E57E /* Jellyfish.png */; };
+		04F140192181E89900B4E57E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F140182181E89900B4E57E /* art.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		047E613E216783CD009B53AC /* 2_DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_DrawViewController.swift; sourceTree = "<group>"; };
 		047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3_TextureSurfaceViewController.swift; sourceTree = "<group>"; };
 		04959FC5217A029700EC3930 /* 4_3DModelsHitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4_3DModelsHitTesting.swift; sourceTree = "<group>"; };
+		04F140112181E73700B4E57E /* Jellyfish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jellyfish.png; sourceTree = "<group>"; };
+		04F140182181E89900B4E57E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,12 +52,14 @@
 		047E611A216684E4009B53AC = {
 			isa = PBXGroup;
 			children = (
+				04F1400D2181E5FF00B4E57E /* Src */,
 				047E613B21678076009B53AC /* Extensions */,
 				047E6138216686A6009B53AC /* Lessons */,
 				047E6126216684E4009B53AC /* AppDelegate.swift */,
 				047E6128216684E4009B53AC /* MainViewController.swift */,
 				047E612A216684E4009B53AC /* Main.storyboard */,
 				047E612D216684E5009B53AC /* Assets.xcassets */,
+				04F140182181E89900B4E57E /* art.scnassets */,
 				047E612F216684E5009B53AC /* LaunchScreen.storyboard */,
 				047E6132216684E5009B53AC /* Info.plist */,
 				047E6124216684E4009B53AC /* Products */,
@@ -85,6 +91,22 @@
 				047E613C21678091009B53AC /* Int+additions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		04F1400D2181E5FF00B4E57E /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				04F140102181E73700B4E57E /* Textures */,
+			);
+			path = Src;
+			sourceTree = "<group>";
+		};
+		04F140102181E73700B4E57E /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				04F140112181E73700B4E57E /* Jellyfish.png */,
+			);
+			path = Textures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +167,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F140122181E73700B4E57E /* Jellyfish.png in Resources */,
+				04F140192181E89900B4E57E /* art.scnassets in Resources */,
 				047E6131216684E5009B53AC /* LaunchScreen.storyboard in Resources */,
 				047E612E216684E5009B53AC /* Assets.xcassets in Resources */,
 				047E612C216684E4009B53AC /* Main.storyboard in Resources */,

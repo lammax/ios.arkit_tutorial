@@ -54,17 +54,21 @@ class ModelsHitTestingViewController: UIViewController {
         if hitTest.isEmpty {
             print("You didn't touch anything at all")
         } else {
-            print("You touched something")
+            let node = hitTest.first!.node
+            self.animateNode(node: node)
         }
     }
     
     func addNode() {
-        
-        let node = SCNNode(geometry: SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0))
-        
-        node.position = SCNVector3(0, 0, -1)
-        
-        self.sceneView.scene.rootNode.addChildNode(node)
+        let jellyFishScene = SCNScene(named: "art.scnassets/Jellyfish.scn")!
+        let jellyFishNode = jellyFishScene.rootNode.childNode(withName: "Jellyfish", recursively: false)
+        if let node = jellyFishNode {
+            node.position = SCNVector3(0, 0, -1)
+            self.sceneView.scene.rootNode.addChildNode(node)
+        }
+    }
+    
+    func animateNode(node: SCNNode) {
         
     }
     
