@@ -8,9 +8,13 @@
 
 import UIKit
 import ARKit
+import Each
 
 class ModelsHitTestingViewController: UIViewController {
     
+    private var timer = Each(1).seconds
+    private var countdown = 0
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var playButton: UIButton!
     
@@ -33,11 +37,19 @@ class ModelsHitTestingViewController: UIViewController {
     }
     
     @IBAction func clickPlayButton(_ sender: UIButton) {
+        self.setTimer()
         self.addNode()
         self.playButton.isEnabled = false
+        self.restoreTimer()
     }
     
     @IBAction func clickResetButton(_ sender: UIButton) {
+        self.sceneView.scene.rootNode.enumerateChildNodes { (existingNode, _) in
+            existingNode.removeFromParentNode()
+        }
+        self.playButton.isEnabled = true
+        self.timer.stop()
+        self.restoreTimer()
     }
     
     func addTapGesture(view: ARSCNView) {
@@ -56,9 +68,21 @@ class ModelsHitTestingViewController: UIViewController {
         if hitTest.isEmpty {
             print("You didn't touch anything at all")
         } else {
-            let node = hitTest.first!.node
-            if node.animationKeys.isEmpty {
-                self.animateNode(node: node)
+            let nodes = hitTest.filter { (htRes) -> Bool in
+                return htRes.node.name == "Jellyfish"
+            }
+            if !nodes.isEmpty && self.countdown > 0 {
+                let node = nodes.first!.node
+                if node.animationKeys.isEmpty {
+                    SCNTransaction.begin()
+                    self.animateNode(node: node)
+                    SCNTransaction.completionBlock = {
+                        node.removeFromParentNode()
+                        self.addNode()
+                        self.restoreTimer()
+                    }
+                    SCNTransaction.commit()
+                }
             }
         }
     }
@@ -68,6 +92,7 @@ class ModelsHitTestingViewController: UIViewController {
         let jellyFishNode = jellyFishScene.rootNode.childNode(withName: "Jellyfish", recursively: false)
         if let node = jellyFishNode {
             node.position = SCNVector3(randomNumber(-1, 1) , randomNumber(-1, 1), randomNumber(-1, 1))
+            node.name = "Jellyfish"
             self.sceneView.scene.rootNode.addChildNode(node)
         }
     }
@@ -90,6 +115,25 @@ class ModelsHitTestingViewController: UIViewController {
             * abs(firstNum - secondNum)
             + min(firstNum, secondNum)
     }
+    
+    func setTimer() {
+        self.timer.perform { () -> NextStep in
+            self.countdown -= 1
+            self.timerLabel.text = String(self.countdown)
+            if self.countdown == 0 {
+                self.timerLabel.text = "You loose =("
+                return .stop
+            } else {
+                return .continue
+            }
+        }
+    }
+    
+    func restoreTimer() {
+        self.countdown = 10
+        self.timerLabel.text = String(self.countdown)
+    }
+    
     
 }
 
