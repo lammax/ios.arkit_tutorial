@@ -1,0 +1,6 @@
+framework module Pods_ARKit_tutorial {
+  umbrella header "Pods-ARKit_tutorial-umbrella.h"
+
+  export *
+  module * { export * }
+}

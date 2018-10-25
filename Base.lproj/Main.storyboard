@@ -63,6 +63,18 @@
                                     <segue destination="4Jj-cy-Gic" kind="show" id="slc-4r-7Qo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phY-Qa-auE">
+                                <rect key="frame" x="88" y="216" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Lesson 5 Detecting surface">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Jr6-fg-9OD" kind="show" id="7A3-pz-2lf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -109,6 +121,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKs-9j-PT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1864.8" y="334.18290854572717"/>
+        </scene>
+        <!--Detecting Surface-->
+        <scene sceneID="Oxn-ac-tai">
+            <objects>
+                <viewController id="Jr6-fg-9OD" customClass="DetectingSurface" customModule="ARKit_tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XNX-47-yuJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zmz-ob-4fC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </arscnView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zmz-ob-4fC" firstAttribute="leading" secondItem="DDO-IC-5VR" secondAttribute="leading" id="4wg-BU-dsW"/>
+                            <constraint firstItem="Zmz-ob-4fC" firstAttribute="bottom" secondItem="DDO-IC-5VR" secondAttribute="bottom" id="M73-fb-4mN"/>
+                            <constraint firstItem="Zmz-ob-4fC" firstAttribute="trailing" secondItem="DDO-IC-5VR" secondAttribute="trailing" id="UF6-46-MUf"/>
+                            <constraint firstItem="Zmz-ob-4fC" firstAttribute="top" secondItem="DDO-IC-5VR" secondAttribute="top" id="dMb-YE-Lit"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DDO-IC-5VR"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="Zmz-ob-4fC" id="zLW-w8-dUm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g4K-5N-P6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="988.15592203898063"/>
         </scene>
         <!--Models Hit Testing View Controller-->
         <scene sceneID="0ir-wl-6T6">

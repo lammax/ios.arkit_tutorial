@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04102BB92182375B007A003C /* 5_DetectingSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04102BB82182375B007A003C /* 5_DetectingSurface.swift */; };
 		047E6127216684E4009B53AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E6126216684E4009B53AC /* AppDelegate.swift */; };
 		047E6129216684E4009B53AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E6128216684E4009B53AC /* MainViewController.swift */; };
 		047E612C216684E4009B53AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047E612A216684E4009B53AC /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04102BB82182375B007A003C /* 5_DetectingSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 5_DetectingSurface.swift; sourceTree = "<group>"; };
 		047E6123216684E4009B53AC /* ARKit_tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKit_tutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047E6126216684E4009B53AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047E6128216684E4009B53AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				047E613E216783CD009B53AC /* 2_DrawViewController.swift */,
 				047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */,
 				04959FC5217A029700EC3930 /* 4_3DModelsHitTesting.swift */,
+				04102BB82182375B007A003C /* 5_DetectingSurface.swift */,
 			);
 			path = Lessons;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04959FC6217A029700EC3930 /* 4_3DModelsHitTesting.swift in Sources */,
+				04102BB92182375B007A003C /* 5_DetectingSurface.swift in Sources */,
 				047E613A21668709009B53AC /* 1_NodeViewController.swift in Sources */,
 				047E6129216684E4009B53AC /* MainViewController.swift in Sources */,
 				047E613F216783CD009B53AC /* 2_DrawViewController.swift in Sources */,
