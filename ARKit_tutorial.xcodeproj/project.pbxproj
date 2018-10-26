@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		04102BB92182375B007A003C /* 5_DetectingSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04102BB82182375B007A003C /* 5_DetectingSurface.swift */; };
+		04102BBD21831DCA007A003C /* 6_IKEA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04102BBC21831DCA007A003C /* 6_IKEA.swift */; };
+		04102BC0218323F9007A003C /* collectionCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04102BBF218323F9007A003C /* collectionCustomCell.swift */; };
+		04102BC221832774007A003C /* UIColor+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04102BC121832774007A003C /* UIColor+additions.swift */; };
+		04102BC4218341C1007A003C /* SCNNode+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04102BC3218341C1007A003C /* SCNNode+additions.swift */; };
+		04102BC721834C2C007A003C /* 7_VehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04102BC621834C2C007A003C /* 7_VehicleViewController.swift */; };
 		047E6127216684E4009B53AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E6126216684E4009B53AC /* AppDelegate.swift */; };
 		047E6129216684E4009B53AC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E6128216684E4009B53AC /* MainViewController.swift */; };
 		047E612C216684E4009B53AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047E612A216684E4009B53AC /* Main.storyboard */; };
@@ -25,6 +30,11 @@
 
 /* Begin PBXFileReference section */
 		04102BB82182375B007A003C /* 5_DetectingSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 5_DetectingSurface.swift; sourceTree = "<group>"; };
+		04102BBC21831DCA007A003C /* 6_IKEA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 6_IKEA.swift; sourceTree = "<group>"; };
+		04102BBF218323F9007A003C /* collectionCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionCustomCell.swift; sourceTree = "<group>"; };
+		04102BC121832774007A003C /* UIColor+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+additions.swift"; sourceTree = "<group>"; };
+		04102BC3218341C1007A003C /* SCNNode+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+additions.swift"; sourceTree = "<group>"; };
+		04102BC621834C2C007A003C /* 7_VehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 7_VehicleViewController.swift; sourceTree = "<group>"; };
 		047E6123216684E4009B53AC /* ARKit_tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKit_tutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047E6126216684E4009B53AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047E6128216684E4009B53AC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +66,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04102BBE218323C9007A003C /* 6_IKEA */ = {
+			isa = PBXGroup;
+			children = (
+				04102BBC21831DCA007A003C /* 6_IKEA.swift */,
+				04102BBF218323F9007A003C /* collectionCustomCell.swift */,
+			);
+			path = 6_IKEA;
+			sourceTree = "<group>";
+		};
+		04102BC521834BFC007A003C /* 7_ Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				04102BC621834C2C007A003C /* 7_VehicleViewController.swift */,
+			);
+			path = "7_ Vehicle";
+			sourceTree = "<group>";
+		};
 		047E611A216684E4009B53AC = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +113,8 @@
 		047E6138216686A6009B53AC /* Lessons */ = {
 			isa = PBXGroup;
 			children = (
+				04102BC521834BFC007A003C /* 7_ Vehicle */,
+				04102BBE218323C9007A003C /* 6_IKEA */,
 				047E613921668709009B53AC /* 1_NodeViewController.swift */,
 				047E613E216783CD009B53AC /* 2_DrawViewController.swift */,
 				047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */,
@@ -99,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				047E613C21678091009B53AC /* Int+additions.swift */,
+				04102BC121832774007A003C /* UIColor+additions.swift */,
+				04102BC3218341C1007A003C /* SCNNode+additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,13 +290,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				04959FC6217A029700EC3930 /* 4_3DModelsHitTesting.swift in Sources */,
+				04102BC721834C2C007A003C /* 7_VehicleViewController.swift in Sources */,
 				04102BB92182375B007A003C /* 5_DetectingSurface.swift in Sources */,
 				047E613A21668709009B53AC /* 1_NodeViewController.swift in Sources */,
 				047E6129216684E4009B53AC /* MainViewController.swift in Sources */,
 				047E613F216783CD009B53AC /* 2_DrawViewController.swift in Sources */,
+				04102BBD21831DCA007A003C /* 6_IKEA.swift in Sources */,
+				04102BC4218341C1007A003C /* SCNNode+additions.swift in Sources */,
 				047E6127216684E4009B53AC /* AppDelegate.swift in Sources */,
 				047E61412167BEE1009B53AC /* 3_TextureSurfaceViewController.swift in Sources */,
+				04102BC0218323F9007A003C /* collectionCustomCell.swift in Sources */,
 				047E613D21678091009B53AC /* Int+additions.swift in Sources */,
+				04102BC221832774007A003C /* UIColor+additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
