@@ -13,9 +13,12 @@ class DrawViewController: UIViewController {
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var drawButton: UIButton!
+    @IBOutlet weak var colorSliderView: UIView!
     
     let configuration = ARWorldTrackingConfiguration()
     let pointer: SCNNode = SCNNode(geometry: SCNSphere(radius: 0.01))
+    
+    private var currentDrawColor: UIColor = UIColor.black
 
     override func viewDidLoad() {
         
@@ -28,15 +31,30 @@ class DrawViewController: UIViewController {
         self.sceneView.session.run(configuration)
         self.sceneView.delegate = self
         
-        self.pointer.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
         self.sceneView.scene.rootNode.addChildNode(self.pointer)
+        
+        self.colorSliderInit()
 
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         self.sceneView.session.pause()
     }
-
+    
+    func colorSliderInit() {
+        let colorSliderframe = CGRect(origin: .zero, size: colorSliderView.frame.size)
+        let colorSlider = ColorPickerSlider(frame: colorSliderframe)
+        colorSlider.didChangeColor = { color in
+            if let chosenLinkColor = color {
+                self.currentDrawColor = chosenLinkColor
+                DispatchQueue.main.async {
+                    self.pointer.geometry?.firstMaterial?.diffuse.contents = self.currentDrawColor
+                }
+            }
+        }
+        colorSlider.colorPickerSliderHeight = 5.0
+        self.colorSliderView.addSubview(colorSlider)
+    }
 
 }
 
@@ -53,7 +71,7 @@ extension DrawViewController: ARSCNViewDelegate {
             if self.drawButton.isHighlighted {
                 let sphereNode = SCNNode(geometry: SCNSphere(radius: 0.02))
                 sphereNode.position = frontOfCamera
-                sphereNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+                sphereNode.geometry?.firstMaterial?.diffuse.contents = self.currentDrawColor
                 self.sceneView.scene.rootNode.addChildNode(sphereNode)
             } else {
                 self.pointer.position = frontOfCamera

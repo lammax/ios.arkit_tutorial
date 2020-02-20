@@ -23,6 +23,9 @@
 		047E613F216783CD009B53AC /* 2_DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E613E216783CD009B53AC /* 2_DrawViewController.swift */; };
 		047E61412167BEE1009B53AC /* 3_TextureSurfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */; };
 		04959FC6217A029700EC3930 /* 4_3DModelsHitTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04959FC5217A029700EC3930 /* 4_3DModelsHitTesting.swift */; };
+		049B17F3218715D600871204 /* ColorPickerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049B17F2218715D600871204 /* ColorPickerSlider.swift */; };
+		049C0E7821D38035002D109E /* 8_ARMeasuringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C0E7721D38035002D109E /* 8_ARMeasuringViewController.swift */; };
+		04C8E1D221E387C1004F0685 /* 9_ARPortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E1D121E387C1004F0685 /* 9_ARPortalViewController.swift */; };
 		04F140122181E73700B4E57E /* Jellyfish.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F140112181E73700B4E57E /* Jellyfish.png */; };
 		04F140192181E89900B4E57E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F140182181E89900B4E57E /* art.scnassets */; };
 		CF446A2ADE5C5152B5ABC1D9 /* Pods_ARKit_tutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C903375BED041BAD6FFD821 /* Pods_ARKit_tutorial.framework */; };
@@ -47,6 +50,9 @@
 		047E613E216783CD009B53AC /* 2_DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_DrawViewController.swift; sourceTree = "<group>"; };
 		047E61402167BEE1009B53AC /* 3_TextureSurfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3_TextureSurfaceViewController.swift; sourceTree = "<group>"; };
 		04959FC5217A029700EC3930 /* 4_3DModelsHitTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4_3DModelsHitTesting.swift; sourceTree = "<group>"; };
+		049B17F2218715D600871204 /* ColorPickerSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerSlider.swift; sourceTree = "<group>"; };
+		049C0E7721D38035002D109E /* 8_ARMeasuringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 8_ARMeasuringViewController.swift; sourceTree = "<group>"; };
+		04C8E1D121E387C1004F0685 /* 9_ARPortalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 9_ARPortalViewController.swift; sourceTree = "<group>"; };
 		04F140112181E73700B4E57E /* Jellyfish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jellyfish.png; sourceTree = "<group>"; };
 		04F140182181E89900B4E57E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		1C903375BED041BAD6FFD821 /* Pods_ARKit_tutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARKit_tutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,7 @@
 		047E611A216684E4009B53AC = {
 			isa = PBXGroup;
 			children = (
+				049B17F1218715C500871204 /* Common */,
 				04F1400D2181E5FF00B4E57E /* Src */,
 				047E613B21678076009B53AC /* Extensions */,
 				047E6138216686A6009B53AC /* Lessons */,
@@ -113,6 +120,8 @@
 		047E6138216686A6009B53AC /* Lessons */ = {
 			isa = PBXGroup;
 			children = (
+				04C8E1D021E3879E004F0685 /* 9_AR_portal */,
+				049C0E7621D37FEC002D109E /* 8_ARMeasuring */,
 				04102BC521834BFC007A003C /* 7_ Vehicle */,
 				04102BBE218323C9007A003C /* 6_IKEA */,
 				047E613921668709009B53AC /* 1_NodeViewController.swift */,
@@ -132,6 +141,30 @@
 				04102BC3218341C1007A003C /* SCNNode+additions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		049B17F1218715C500871204 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				049B17F2218715D600871204 /* ColorPickerSlider.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		049C0E7621D37FEC002D109E /* 8_ARMeasuring */ = {
+			isa = PBXGroup;
+			children = (
+				049C0E7721D38035002D109E /* 8_ARMeasuringViewController.swift */,
+			);
+			path = 8_ARMeasuring;
+			sourceTree = "<group>";
+		};
+		04C8E1D021E3879E004F0685 /* 9_AR_portal */ = {
+			isa = PBXGroup;
+			children = (
+				04C8E1D121E387C1004F0685 /* 9_ARPortalViewController.swift */,
+			);
+			path = 9_AR_portal;
 			sourceTree = "<group>";
 		};
 		04F1400D2181E5FF00B4E57E /* Src */ = {
@@ -298,9 +331,12 @@
 				04102BBD21831DCA007A003C /* 6_IKEA.swift in Sources */,
 				04102BC4218341C1007A003C /* SCNNode+additions.swift in Sources */,
 				047E6127216684E4009B53AC /* AppDelegate.swift in Sources */,
+				049B17F3218715D600871204 /* ColorPickerSlider.swift in Sources */,
 				047E61412167BEE1009B53AC /* 3_TextureSurfaceViewController.swift in Sources */,
 				04102BC0218323F9007A003C /* collectionCustomCell.swift in Sources */,
+				049C0E7821D38035002D109E /* 8_ARMeasuringViewController.swift in Sources */,
 				047E613D21678091009B53AC /* Int+additions.swift in Sources */,
+				04C8E1D221E387C1004F0685 /* 9_ARPortalViewController.swift in Sources */,
 				04102BC221832774007A003C /* UIColor+additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

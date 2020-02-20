@@ -104,8 +104,7 @@ class IKEAViewController: UIViewController {
         if let item = self.currentItem {
             let scene = SCNScene(named: "art.scnassets/IKEA/\(item).scn")
             let node = scene?.rootNode.childNode(withName: item, recursively: false)
-            let transform = htResult.worldTransform
-            let thirdColumn = transform.columns.3
+            let thirdColumn = htResult.worldTransform.columns.3
             node?.position = SCNVector3(thirdColumn.x, thirdColumn.y, thirdColumn.z)
             if self.currentItem == "table" {
                 node?.centerPivot()
